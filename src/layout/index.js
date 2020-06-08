@@ -1,11 +1,11 @@
 import React from 'react'
-import {Layout, Menu, Breadcrumb, Dropdown} from 'antd';
+import { Layout, Menu, Breadcrumb, Dropdown } from 'antd'
 import routes from '../public/routes'
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom'
 import Store from 'store'
 
-const {SubMenu} = Menu
-const {Header, Content, Sider, Footer} = Layout;
+const { SubMenu } = Menu
+const { Header, Content, Sider, Footer } = Layout;
 
 
 class BaseLayout extends React.Component {
@@ -25,7 +25,7 @@ class BaseLayout extends React.Component {
     //const {} = this.props, {} = this.state;
 
     return (
-      <Layout style={{height: '100%'}}>
+      <Layout style={{ height: '100%' }}>
         <Header className="header" style={{
           position: "relative"
         }}>
@@ -33,17 +33,17 @@ class BaseLayout extends React.Component {
             onClick={this.handleClickMenu}
           >
             <Menu.Item>
-              修改
+              修改密码
             </Menu.Item>
             <Menu.Item key={'remove'}>
-              注销
+              退出登录
             </Menu.Item>
             <Menu.Item>
-
+              么么哒
             </Menu.Item>
           </Menu>}>
             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}
-               style={{position: "absolute", right: 20}}>
+              style={{ position: "absolute", right: 20,color:'white' }} href=''>
               {Store.get('user') && Store.get('user').username}
             </a>
           </Dropdown>
@@ -53,7 +53,7 @@ class BaseLayout extends React.Component {
             <Menu
               mode="inline"
               onClick={this.clickMenu}
-              style={{height: '100%', borderRight: 0}}
+              style={{ height: '100%', borderRight: 0 }}
             >
               {
                 routes.admin.map(item => {
@@ -71,8 +71,8 @@ class BaseLayout extends React.Component {
               }
             </Menu>
           </Sider>
-          <Layout style={{padding: '0 24px 0'}}>
-            <Breadcrumb style={{margin: '16px 0'}}>
+          <Layout style={{ padding: '0 24px 0' }}>
+            <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item>Home</Breadcrumb.Item>
               <Breadcrumb.Item>List</Breadcrumb.Item>
               <Breadcrumb.Item>App</Breadcrumb.Item>
@@ -89,7 +89,7 @@ class BaseLayout extends React.Component {
             </Content>
           </Layout>
         </Layout>
-        <Footer style={{textAlign: 'center'}}>@Zhu-Hai-bo旺旺碎冰冰</Footer>
+        <Footer style={{ textAlign: 'center' }}>@ME-me-da-蛋蛋碎冰冰</Footer>
       </Layout>
     )
   }

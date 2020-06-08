@@ -1,7 +1,7 @@
 import React from 'react'
 import BaseLayout from "../../layout";
 import Routes from "../../public/routes";
-import {HashRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
 class Admin extends React.Component {
   state = {}
@@ -15,17 +15,20 @@ class Admin extends React.Component {
           <Switch>
             {
               Routes.admin.map(item => {
-                if (item && item.children && item.children.length > 0) {
+                if (item.children && item.children.length > 0) {
                   item.children.map(child => {
                     if (child.show) {
-                      return <Route key={child.path} path={child.path} component={child.component} exact/>
+                      return <Route key={child.path} {...child} exact />
                     }
+                    return true
                   })
+                }else{
+                  return <Route key={item.path} {...item} exact />
                 }
-                return <Route key={item.path} {...item} exact/>
+                return false
               })
             }
-            {/*<Redirect to={'/404'}/>*/}
+            <Redirect to={'/404'} />
           </Switch>
         </Router>
       </BaseLayout>
